@@ -1,12 +1,15 @@
 export default function Usuario() {
+    const nomeUsuario = [
+        { imagem: "assets/img/catanacomics.svg", arroba: "catanacomics", nome: "Catana"}
+    ]
 
     return (
         <div class="usuario">
-            <img src="assets/img/catanacomics.svg" />
+            <img src= {nomeUsuario.map((i) => i.imagem)}/>
             <div class="texto">
-                <strong>catanacomics</strong>
+                <strong>{nomeUsuario.map((a) => a.arroba)}</strong>
                 <span>
-                    Catana
+                    {nomeUsuario.map((n) => n.nome)}
                     <ion-icon name="pencil"></ion-icon>
                 </span>
             </div>
