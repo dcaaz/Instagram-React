@@ -1,16 +1,28 @@
+import React from "react"
+
 export default function Usuario() {
-    const nomeUsuario = [
-        { imagem: "assets/img/catanacomics.svg", arroba: "catanacomics", nome: "Catana"}
-    ]
+    const [nome, setNome] = React.useState("")
+    const [foto, setFoto] = React.useState("assets/img/catanacomics.svg")
+
+    function inserirNome() {
+        const nomePrompt = prompt("Qual é o seu nome?")
+        setNome(nomePrompt)
+    }
+
+    function inserirFoto() {
+        const fotoPrompt = prompt("Insira o link da sua foto aqui")
+        setFoto(fotoPrompt)
+    }
+
 
     return (
         <div class="usuario">
-            <img src= {nomeUsuario.map((i) => i.imagem)}/>
+            <button onClick={inserirFoto}><img src={foto} /></button>
             <div class="texto">
-                <strong>{nomeUsuario.map((a) => a.arroba)}</strong>
+                <strong>{(nome === "" || nome === null) ? "" : `@${nome}`}</strong>
                 <span>
-                    {nomeUsuario.map((n) => n.nome)}
-                    <ion-icon name="pencil"></ion-icon>
+                    {(nome === "" || nome === null) ? "Por gentileza, seu nome" : `${nome}`}
+                    <ion-icon onClick={inserirNome} name="pencil"></ion-icon>
                 </span>
             </div>
         </div>

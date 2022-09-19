@@ -2,6 +2,15 @@
   box-sizing: border-box;
 }
 
+button {
+  border: none;
+  background: transparent;
+}
+
+.red {
+  color: red;
+}
+
 body {
   background-color: #FAFAFA;
   margin: 54px 0 0;
